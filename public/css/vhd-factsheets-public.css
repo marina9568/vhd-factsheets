@@ -1,4 +1,226 @@
-/**
- * All of the CSS for your public-facing functionality should be
- * included in this file.
- */
+.vhd-content {
+    background: #fff;
+    padding: 30px;
+}
+.vhd-content .nav-tabs>li {
+    padding: 0;
+}
+.vhd-content .nav-tabs>li:before, .vhd-content .nav-tabs>li:after {
+    content: '';
+}
+.vhd-content .nav-tabs>li>a {
+    text-transform: capitalize;
+    font-size: 1.2em;
+    color: #555;
+}
+.vhd-row h2 {
+    text-transform: capitalize;
+    text-align: center;
+    padding: 20px;
+}
+.vhd-fact-item {
+    display: block;
+    color: #444;
+    padding: 20px;
+    min-height: 140px;
+    margin: 0 5px 30px;
+    text-align: center;
+    box-shadow: 0px 4px 8px 4px #bfbfbf;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border: none;
+}
+.vhd-fact-item:hover {
+    background: #f9f9f9;
+    text-decoration: none;
+    color: #333;
+    border: none;
+}
+.vhd-fact-item:focus {
+    box-shadow: 0px 2px 5px 2px #8c8c8c;
+    outline: none;
+    
+}
+.vhd-dot-container {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.vhd-dot {
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background: #444;
+}
+.vhd-panel.panel-title>a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+.vhd-panel.panel-title a:hover {
+    text-decoration: none;
+    border: none;
+}
+.vhd-panel.panel-title a:before {
+    content: '-';
+    font-size: 21px;
+    font-weight: bold;
+    width: 22px;
+    height: 22px;
+    line-height: 20px;
+    background: #444;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+    margin-right: 5px;
+}
+.vhd-panel.panel-title a.collapsed:before {
+    content: '+';
+}
+
+
+.VHDmodal-wrapper {
+    position: relative;
+}
+.VHDmodal-open {
+  overflow: hidden;
+}
+.VHDmodal {
+  display: none;
+    overflow: auto;
+    overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99999;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+}
+.VHDmodal.VHDfade .VHDmodal-dialog {
+  -webkit-transform: translate(0, -25%);
+  -ms-transform: translate(0, -25%);
+  -o-transform: translate(0, -25%);
+  transform: translate(0, -25%);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+.VHDmodal.in .VHDmodal-dialog {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.VHDmodal-open .VHDmodal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.VHDmodal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+.VHDmodal-content {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #999999;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  -webkit-background-clip: padding-box;
+          background-clip: padding-box;
+  outline: 0;
+}
+.VHDmodal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99998;
+  background-color: #000000;
+}
+.VHDmodal-backdrop.VHDfade {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.VHDmodal-backdrop.in {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+.VHDmodal-header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.VHDmodal-header .close {
+  margin-top: -2px;
+}
+.VHDmodal-title {
+  margin: 0;
+  line-height: 1.42857143;
+}
+.VHDmodal-body {
+  position: relative;
+  padding: 15px;
+}
+.VHDmodal-footer {
+  padding: 15px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+.VHDmodal-footer .btn + .btn {
+  margin-left: 5px;
+  margin-bottom: 0;
+}
+.VHDmodal-footer .btn-group .btn + .btn {
+  margin-left: -1px;
+}
+.VHDmodal-footer .btn-block + .btn-block {
+  margin-left: 0;
+}
+.VHDmodal-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+@media (min-width: 768px) {
+  .VHDmodal-dialog {
+    width: 600px;
+    margin: 30px auto;
+  }
+  .VHDmodal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+  .VHDmodal-sm {
+    width: 300px;
+  }
+}
+@media (min-width: 992px) {
+  .VHDmodal-lg {
+    width: 900px;
+  }
+}
+.clearfix:before,
+.clearfix:after,
+.VHDmodal-header:before,
+.VHDmodal-header:after,
+.VHDmodal-footer:before,
+.VHDmodal-footer:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after,
+.VHDmodal-header:after,
+.VHDmodal-footer:after {
+  clear: both;
+}

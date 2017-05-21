@@ -97,10 +97,10 @@ class Vhd_Factsheets_Public {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/vhd-factsheets-public.js', array( 'jquery' ), $this->version, false );
                 
                 wp_enqueue_script( 'vhd-bootstrap', plugin_dir_url( __FILE__ ) . 'js/bootstrap.min.js', array(), '3.3.7', 'all' );
+                
+                wp_enqueue_script( 'vhd-modal', plugin_dir_url( __FILE__ ) . 'js/modal.js', array(), $this->version, 'all' );
 
 	}
 

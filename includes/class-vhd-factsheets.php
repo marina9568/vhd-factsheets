@@ -215,13 +215,11 @@ class Vhd_Factsheets {
         
         function vhd_factsheets_shortcode() {
             $factsheets = self::get_factsheets();
-            
-            echo '<pre>';
-            print_r($factsheets);
-            echo '</pre>';
 
+            include plugin_dir_path( dirname( __FILE__ ) ) . 'public/partials/vhd-factsheets-public-display.php';
+            
         }
-        
+
         static function get_array_from_files() {
             $path = plugin_dir_path( dirname( __FILE__ ) ) . 'assets/';
 
@@ -256,7 +254,9 @@ class Vhd_Factsheets {
                                 continue;
                             }
                             foreach ($row as $k=>$value) {
-                                $array[$i][$fields[$k]] = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+                                if (! empty($value)) {
+                                    $array[$i][$fields[$k]] = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+                                }
                             }
                             $i++;
                         }
