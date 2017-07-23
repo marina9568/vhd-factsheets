@@ -12,13 +12,31 @@
  * @subpackage Vhd_Factsheets/public/partials
  */
 ?>
+
+<script>
+    (function( $ ) {
+        function printMe($el){
+          $('<iframe>', {
+            name: 'myiframe',
+            class: 'printFrame'
+          })
+          .appendTo('body')
+          .html($el);
+
+          window.frames['myiframe'].focus();
+          window.frames['myiframe'].print();
+
+          setTimeout(() => { $(".printFrame").remove(); }, 1000)
+        };
+    })( jQuery );
+</script>
 <div class="vhd-content">
     <div class="container-fluid">
         <div class="vhd-row">
             <ul class="nav nav-tabs" role="tablist">
                 <?php
                 $i = 0;
-                
+
                 if (! is_array($factsheets)) {
                     exit();
                 }
@@ -69,6 +87,8 @@
                                                 <div class="VHDmodal-header">
                                                     <button type="button" class="close" data-dismiss="VHDmodal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                     <h2 class="VHDmodal-title" id="vhd-modal"><?php echo $fact_item; ?></h2>
+                                                    <button class="btn btn-default print-this-<?php echo $vhd_id; ?>">Print this</button>
+
                                                 </div>
                                                 <div class="VHDmodal-body">
 
@@ -103,7 +123,27 @@
                                                         <?php endforeach; ?>
 
                                                     </div>
+                                                    <div id="print-<?php echo $vhd_id; ?>" class="htr-print-el">
+                                                        <h2><?php echo $fact_item; ?></h2>
+                                                        <?php $p = 0;
+                                                        foreach ( $item as $key => $value ) : 
 
+                                                            if ($p == 0) {
+                                                                $p++;
+                                                                continue;
+                                                            }
+                                                            ?>
+
+                                                            <h4>
+                                                                <?php echo $key; ?>
+                                                            </h4>
+
+                                                            <div>
+                                                                <?php echo $value; ?>
+                                                            </div>
+
+                                                        <?php endforeach; ?>
+                                                    </div>
                                                 </div>
                                                 <div class="VHDmodal-footer">
                                                     <button type="button" class="btn vhd-btn" data-dismiss="VHDmodal">Close</button>
@@ -112,7 +152,31 @@
                                         </div>
                                     </div>
                                 <?php }); ?>
-                                    
+                                    <script>
+                                        
+                                        (function( $ ) {
+
+                                            $(document).on('click', '.print-this-<?php echo $vhd_id; ?>', function() {
+
+                                                var $el = $('#print-<?php echo $vhd_id; ?>');
+                                                $('<iframe>', {
+                                                    name: 'myiframe',
+                                                    class: 'printFrame'
+                                                })
+                                                .appendTo('body')
+                                                .contents().find('body')
+                                                .append($el);
+
+                                                window.frames['myiframe'].focus();
+                                                window.frames['myiframe'].print();
+
+                                                setTimeout(() => { $(".printFrame").remove(); }, 1000)
+
+                                            });
+
+                                        })( jQuery );
+
+                                    </script>
 
                                 </div>
                             <?php endforeach; ?>

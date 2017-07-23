@@ -249,6 +249,7 @@ class Vhd_Factsheets {
                     $handle = @fopen($file, "r");
                     if ($handle) {
                         while (($row = fgetcsv($handle, 10000)) !== false) {
+
                             if (empty($fields)) {
                                 $fields = $row;
                                 continue;
@@ -267,15 +268,15 @@ class Vhd_Factsheets {
                     $pets_array[$pet] = $types_array;
                 }
             }
-            
+
             return $pets_array;
             
         }
         
         static function get_factsheets() {
             $result = get_option('vhd_factsheets_array');
-            
-            if (! $result) {
+
+            if (! $result || count(maybe_unserialize($result)) === 0) {
                 
                 $result = self::get_array_from_files();
                 

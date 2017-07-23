@@ -30,21 +30,23 @@ Uploading in WordPress Dashboard:
 
 1. Navigate to 'Add New' in the plugin dashboard
 2. Navigate to 'Upload' area
-3. Select vhd-sm-reviews-widget.zip from your computer
+3. Select vhd_factsheets.zip from your computer
 4. Click 'Install Now'
 5. Activate the plugin in the Plugin dashboard
 
 Using FTP
 
-1. Download vhd-sm-reviews-widget.zip
-2. Extract the vhd-sm-reviews-widget directory to your computer
-3. Upload the vhd-sm-reviews-widget.zip directory to the /wp-content/plugins/ directory
+1. Download vhd_factsheets.zip
+2. Extract the vhd_factsheets directory to your computer
+3. Upload the vhd_factsheets.zip directory to the /wp-content/plugins/ directory
 4. Activate the plugin in the Plugin dashboard
 
 Then add shortcode [vhd_factsheets] to your page content.
 
 
 == Changelog ==
+= 1.1.0 =
+* Added functionality for printing content. *
 
 = 1.0.0 =
 * initial *

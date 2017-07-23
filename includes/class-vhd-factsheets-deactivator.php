@@ -30,7 +30,7 @@ class Vhd_Factsheets_Deactivator {
 	 * @since    1.0.0
 	 */
 	public static function deactivate() {
-
+            add_option('vhd_factsheets_array', '');
 	}
 
 }
